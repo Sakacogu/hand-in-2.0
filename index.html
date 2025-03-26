@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <div id="game-container">
+      <div id="options">
+        <label for="x-color-picker">X color:</label>
+        <input type="color" id="x-color-picker" value="#000000" />
+        <label for="o-color-picker">O color:</label>
+        <input type="color" id="o-color-picker" value="#000000" />
+        <div id="symbol-options">
+          <label for="x-symbol">Custom X:</label>
+          <input type="text" id="x-symbol" value="X" maxlength="1" />
+          <label for="o-symbol">Custom O:</label>
+          <input type="text" id="o-symbol" value="O" maxlength="1" />
+        </div>
+      </div>
+      
+      <div id="gameArea">
+        <header>
+          <h1>TicTacToe!</h1>
+        </header>
+        <div id="board-container">
+          <div id="board" class="fancy"></div>
+        </div>
+        <div id="controls">
+          <div id="status">Players turn: O</div>
+          <button id="reset-button">Reset Game</button>
+        </div>
+      </div>
+      
+      <div id="board-style-container">
+        <label for="board-style-select">Board Style:</label>
+        <select id="board-style-select">
+          <option value="fancy" selected>Fancy</option>
+          <option value="modern">Modern</option>
+          <option value="classic">Classic</option>
+          <option value="dark">Dark</option>
+          <option value="neon">Neon</option>
+        </select>
+        <button id="crazy-button">Go Crazy!</button>
+      </div>
+    </div>    <script src="script.js"></script>
+  </body>
+</html>

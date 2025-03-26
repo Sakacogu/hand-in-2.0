@@ -1,0 +1,262 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffb3b3, #ffa0e1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#gameArea header {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#gameArea header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+#game-container {
+  display: flex;
+  gap: 20px;
+  max-width: 100vw;
+  max-height: 100vh;
+  border: 2px solid #e4c2c2;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  padding: 80px;
+  background-color: #ffcccc;
+  margin: auto;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 150px;
+  padding-top: 20px;
+}
+
+#symbol-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#colors-options {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+#gameArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 320px;
+  box-sizing: border-box;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  background: #f0f0f0;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  border-radius: 4px;
+}
+
+.cell:hover {
+  background: #d1d1d1;
+  transform: scale(1.02);
+}
+
+.cell.outside {
+  transform: translate(-30px, -30px);
+  transition: transform 0.2s ease;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+#status {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#board-style-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-items: center;
+  width: 150px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#board-style-container label {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+#board-style-container select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1px solid #ffb0b0;
+  border-radius: 4px;
+  background: #fff;
+  background-position: right 10px center;
+}
+
+.classic {
+  background: #f0f0f0;
+  border: none;
+}
+
+#board.modern {
+  background: #000;
+}
+#board.modern .cell {
+  background: #ffffff;
+}
+
+.fancy {
+  background: linear-gradient(45deg, #ffcccc, #ffe6e6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: visible;
+  border-radius: 4px;
+}
+#board.fancy .cell:nth-child(odd) {
+  background-color: #ffcccc;
+}
+#board.fancy .cell:nth-child(even) {
+  background-color: #ffe6e6;
+}
+
+.dark {
+  background: #333;
+  border: 3px solid #555;
+  box-sizing: border-box;
+}
+#board.dark .cell {
+  background: #444;
+  color: #f8f8f8;
+}
+
+#board.neon {
+  background-color: #39ff14;
+  border: 3px solid #39ff14;
+  box-sizing: border-box;
+}
+#board.neon .cell {
+  background: #fb00ff;
+  text-shadow: 2px 1px 1px #39ff14;
+}
+
+body.crazy {
+  filter: invert(1) hue-rotate(180deg);
+  background: #333;
+  transition: filter 0.5s ease, background-color 4s ease;
+}
+
+#board-style-container #crazy-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff5555;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#board-style-container #crazy-button:hover {
+  background-color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  #game-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #gameArea {
+    order: 1;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  #options {
+    order: 2;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+  }
+
+  #symbol-options {
+    flex-direction: column;
+    max-width: 92px;
+  }
+
+  #colors-options {
+    flex-direction: column;
+    max-width: 92px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap; 
+    gap: 4px; 
+  }
+  
+  #board-style-container {
+    order: 3;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
